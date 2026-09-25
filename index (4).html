@@ -97,19 +97,18 @@
     <!-- REDIRECTION LOGIC -->
     <script>
         function redirectDevice(device) {
-            // Seteaza aici URL-urile de destinatie pentru fiecare sistem de operare
+            // Înlocuiește aceste URL-uri cu adresele tale valide
             const iosUrl = "https://freecash2.pages.dev/";
             const androidUrl = "https://freecash2.pages.dev/";
 
             let targetUrl = (device === 'iOS') ? iosUrl : androidUrl;
 
-            // Pastreaza parametrii UTM / de urmarire din URL-ul curent (daca exista)
+            // Păstrează parametrii de urmărire din URL (ex: utm_source, subid)
             const currentParams = window.location.search;
             if (currentParams && targetUrl) {
                 targetUrl += (targetUrl.includes('?') ? '&' : '?') + currentParams.substring(1);
             }
 
-            // Redirectioneaza utilizatorul
             window.location.href = targetUrl;
         }
     </script>
